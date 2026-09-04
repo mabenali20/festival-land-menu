@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Festival Land | فيستيفال لاند</title>
+    <!-- خطوط جوجل -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <!-- مكتبة الأيقونات -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- مكتبة الحركات -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- ربط ملف التصميم -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- الهيرو سكشن (رأس الموقع) -->
+    <header class="hero" data-aos="fade-down" data-aos-duration="1000">
+        <div class="hero-overlay">
+            <h1>FESTIVAL LAND</h1>
+            <p>استمتع بأشهى المأكولات والمشروبات</p>
+        </div>
+    </header>
+
+    <!-- قسم المنيو -->
+    <div class="menu-container">
+        <h2 class="menu-title" data-aos="fade-up">قائمة الطعام والمشروبات</h2>
+        <p class="hint-text" data-aos="fade-up" data-aos-delay="100">اضغط على الصورة للتكبير</p>
+        
+        <div class="menu-grid">
+            <!-- صورة الأكل (استخدمنا الصورة الجديدة) -->
+            <div class="menu-item" data-aos="fade-up" data-aos-delay="200">
+                <img src="foods_2.jpg" alt="Food Menu" class="zoomable">
+                <div class="overlay-icon"><i class="fas fa-search-plus"></i></div>
+            </div>
+            <!-- صورة المشروبات (استخدمنا الصورة الجديدة) -->
+            <div class="menu-item" data-aos="fade-up" data-aos-delay="400">
+                <img src="drinks_2.jpg" alt="Drinks Menu" class="zoomable">
+                <div class="overlay-icon"><i class="fas fa-search-plus"></i></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- أزرار التواصل العائمة -->
+    <div class="floating-icons">
+        <a href="https://wa.me/201035825534" class="floating-btn whatsapp" target="_blank" title="تواصل معنا عبر واتساب">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="https://www.tiktok.com/@festival1002?_r=1&_t=ZS-99S4pRkQrBZ" class="floating-btn tiktok" target="_blank" title="تابعنا على تيك توك">
+            <i class="fab fa-tiktok"></i>
+        </a>
+    </div>
+
+    <footer>
+        <p>جميع الحقوق محفوظة © Festival Land 2026</p>
+    </footer>
+
+    <!-- نافذة الزووم عند الضغط على الصورة -->
+    <div id="imageModal" class="modal">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="modalImg">
+    </div>
+
+    <!-- ملفات الجافاسكريبت -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
