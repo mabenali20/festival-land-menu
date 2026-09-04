@@ -1,0 +1,237 @@
+:root {
+    --primary-gold: #d4af37;
+    --dark-bg: #0d0d0d;
+    --card-bg: #1a1a1a;
+    --text-light: #f5f5f5;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Cairo', sans-serif;
+    background-color: var(--dark-bg);
+    color: var(--text-light);
+    text-align: center;
+    overflow-x: hidden;
+}
+
+/* الهيرو سكشن */
+.hero {
+    /* وضعنا صورة الأكل كخلفية شفافة لتعطي شكل جمالي */
+    background: url('foods_2.jpg') center/cover no-repeat;
+    position: relative;
+    min-height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 3px solid var(--primary-gold);
+}
+
+.hero-overlay {
+    background: rgba(0, 0, 0, 0.85); /* طبقة تعتيم */
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    color: var(--primary-gold);
+    margin: 0;
+    letter-spacing: 3px;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.9);
+}
+
+.hero p {
+    font-size: 1.3rem;
+    color: #ddd;
+    margin-top: 10px;
+}
+
+/* المنيو */
+.menu-container {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+.menu-title {
+    color: var(--primary-gold);
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    position: relative;
+    display: inline-block;
+}
+
+.menu-title::after {
+    content: '';
+    display: block;
+    width: 50%;
+    height: 2px;
+    background-color: var(--primary-gold);
+    margin: 10px auto 0;
+}
+
+.hint-text {
+    color: #888;
+    font-size: 1rem;
+    margin-bottom: 40px;
+}
+
+.menu-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+/* تصميم كروت الصور */
+.menu-item {
+    flex: 1 1 100%;
+    max-width: 500px;
+    background-color: var(--card-bg);
+    border-radius: 15px;
+    border: 2px solid #333;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.menu-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.overlay-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3rem;
+    color: var(--primary-gold);
+    background: rgba(0,0,0,0.7);
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
+.menu-item:hover {
+    border-color: var(--primary-gold);
+    box-shadow: 0 15px 40px rgba(212, 175, 55, 0.3);
+}
+
+.menu-item:hover img {
+    transform: scale(1.05); /* تكبير الصورة قليلا عند مرور الماوس */
+}
+
+.menu-item:hover .overlay-icon {
+    opacity: 1;
+}
+
+/* الأزرار العائمة */
+.floating-icons {
+    position: fixed;
+    bottom: 25px;
+    left: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 999;
+}
+
+.floating-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    color: white;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+}
+
+.whatsapp { background-color: #25D366; }
+.tiktok { background-color: #000; border: 2px solid #333; }
+.tiktok:hover { background-color: #ff0050; border-color: #ff0050; }
+.whatsapp:hover { background-color: #128C7E; }
+
+.floating-btn:hover {
+    transform: translateY(-5px) scale(1.1);
+}
+
+/* نافذة الزووم (Lightbox) */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    padding-top: 50px;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.95);
+    overflow: auto;
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 95%;
+    max-width: 800px;
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
+    animation: zoomIn 0.3s ease;
+}
+
+@keyframes zoomIn {
+    from {transform: scale(0.8); opacity: 0;}
+    to {transform: scale(1); opacity: 1;}
+}
+
+.close-modal {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.close-modal:hover {
+    color: var(--primary-gold);
+}
+
+/* الفوتر */
+footer {
+    background-color: #050505;
+    padding: 20px;
+    color: #666;
+    border-top: 1px solid #222;
+    margin-top: 50px;
+}
+
+/* استجابة الموبايل */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2.2rem; }
+    .hero p { font-size: 1rem; }
+    .floating-btn { width: 50px; height: 50px; font-size: 25px; }
+    .floating-icons { left: 15px; bottom: 15px; }
+    .close-modal { top: 10px; right: 20px; font-size: 35px; }
+}
